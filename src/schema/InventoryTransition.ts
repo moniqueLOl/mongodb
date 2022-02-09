@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
+export type InventoryDocument = InventoryTransiton & Document;
+
+
 export const inventortTransitionSchema = new mongoose.Schema({
     transition: String,
     clientLocation: String,
