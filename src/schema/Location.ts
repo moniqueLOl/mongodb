@@ -6,10 +6,6 @@ export const locationSchema = new mongoose.Schema({
     cnpj: String,
     cep: String,
     street: String,
-    site: String,
-    cnpj: String,
-    cep: String,
-    street: String,
     neighborhood: String,
     number: String,
     city: String,
@@ -22,8 +18,7 @@ export const locationSchema = new mongoose.Schema({
     endTime: String,
     storeManager: String,
     cellPhone: String,
-    isThirdParty: Boolean,
+    isThirversiondParty: Boolean,
     version: Number,
-    active: Boolean,
-
+    active: Boolean
 })
