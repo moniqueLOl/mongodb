@@ -16,7 +16,7 @@ export class mongoDB {
     async update(id) {
         const inventoryTransition = await this._inventoryTransitionModel.findOne({ _id: id });
         const clientLocation = await this._clientLocationModel.findOne({ _id: id });
-
+        const location = inventoryTransition.location
         const inventoryTransitionList = []
 
         inventoryTransitionList.push(inventoryTransition.location)
@@ -27,7 +27,7 @@ export class mongoDB {
 
             clientLocation.location === element.id
 
-            inventoryTransition.populate('location')
+            location.populate('clientLocation')
 
         })
     }
