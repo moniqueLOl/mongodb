@@ -27,7 +27,7 @@ export class mongoDB {
 
             clientLocation.location === element.id
 
-            location.populate('clientLocation')
+            location.push(clientLocation)
 
         })
     }
