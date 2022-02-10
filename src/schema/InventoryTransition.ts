@@ -1,23 +1,56 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 
-export type InventoryDocument = InventoryTransiton & Document;
+export type inventoryDocument = InventoryTransition & Document;
+
+@Schema()
+export class InventoryTransition {
+    @Prop()
+    transition: String;
+
+    @Prop()
+    location: String;
+
+    @Prop()
+    clientLocation: String;
+
+    @Prop()
+    feature: String;
+
+    @Prop()
+    severity: String;
+
+    @Prop()
+    serialNumber: String;
+
+    @Prop()
+    hostName: String;
+
+    @Prop()
+    IPAdress: String;
+
+    @Prop()
+    manufacturer: String;
+
+    @Prop()
+    model: String;
+
+    @Prop()
+    description: String;
+
+    @Prop()
+    switchStack: String;
 
 
-export const inventortTransitionSchema = new mongoose.Schema({
-    transition: String,
-    clientLocation: String,
-    feature: String,
-    severity: String,
-    serialNumber: String,
-    hostName: String,
-    IPAdress: String,
-    manufacturer: String,
-    model: String,
-    description: String,
-    switchStack: String,
-    specialInstruction: String,
-    version: Number,
-    active: Boolean
+    @Prop()
+    specialInstruction: String;
 
-});
+    @Prop()
+    version: Number;
+
+    @Prop()
+    active: Boolean;
+
+}
+
+export const inventoryTransitionSchema = SchemaFactory.createForClass(InventoryTransition);

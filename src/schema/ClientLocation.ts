@@ -1,9 +1,22 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 
-export const clientLocationSchema = new mongoose.Schema({
-    client: String,
-    location: String,
-    active: Boolean,
-    version: Number
-})
+export type ClientDocument = ClientLocation & Document;
+
+
+@Schema()
+export class ClientLocation {
+    @Prop()
+    client: String;
+
+    @Prop()
+    location: String;
+
+    @Prop()
+    active: Boolean;
+
+    @Prop()
+    version: Number;
+};
+
+export const clientLocationSchema = SchemaFactory.createForClass(ClientLocation);

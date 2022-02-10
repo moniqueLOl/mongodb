@@ -1,24 +1,66 @@
-import mongoose from 'mongoose';
-const { Schema } = mongoose;
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document } from 'mongoose';
 
-export const locationSchema = new mongoose.Schema({
-    site: String,
-    cnpj: String,
-    cep: String,
-    street: String,
-    neighborhood: String,
-    number: String,
-    city: String,
-    state: String,
-    country: String,
-    ICMS: String,
-    municipalRegistration: String,
-    stateRegistration: String,
-    startTime: String,
-    endTime: String,
-    storeManager: String,
-    cellPhone: String,
-    isThirversiondParty: Boolean,
-    version: Number,
-    active: Boolean
-})
+export type LocationDocument = Location & Document;
+
+@Schema()
+export class Location {
+    @Prop()
+    site: String;
+
+    @Prop()
+    cnpj: String;
+
+    @Prop()
+    cep: String;
+
+    @Prop()
+    street: String;
+
+    @Prop()
+    neighborhood: String;
+
+    @Prop()
+    number: String;
+
+    @Prop()
+    city: String;
+
+    @Prop()
+    state: String;
+
+    @Prop()
+    country: String;
+
+    @Prop()
+    ICMS: String;
+
+    @Prop()
+    municipalRegistration: String;
+
+    @Prop()
+    stateRegistration: String;
+
+    @Prop()
+    startTime: String;
+
+    @Prop()
+    endTime: String;
+
+    @Prop()
+    storeManager: String;
+
+    @Prop()
+    cellPhone: String;
+
+    @Prop()
+    isThirversiondParty: Boolean;
+
+    @Prop()
+    version: Number;
+
+    @Prop()
+    active: Boolean;
+}
+
+export const LocationSchema = SchemaFactory.createForClass(Location);
