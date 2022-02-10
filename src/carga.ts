@@ -17,13 +17,13 @@ export class mongoDB {
         const inventoryTransition = await this._inventoryTransitionModel.findOne({ _id: id });
         const clientLocation = await this._clientLocationModel.findOne({ _id: id });
 
-        var inventoryTransitionList = []
+        const inventoryTransitionList = []
 
-        inventoryTransitionList = inventoryTransition.location.push()
+        inventoryTransitionList.push(inventoryTransition.location)
 
+        //a parte de populate acredito que ta errado, procurando uma forma de fazer certo.
 
-
-        inventoryTransitionList.foreach(element => {
+        inventoryTransitionList.forEach(element => {
 
             clientLocation.location === element.id
 
